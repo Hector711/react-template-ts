@@ -1,15 +1,17 @@
-import { StrictMode } from 'react';
+import { StrictMode, Suspense } from 'react';
 import { createRoot } from 'react-dom/client';
 import App from '@/App.tsx';
 
 // CSS
-import '@/css/reset/reset.scss';
-import '@/css/init.scss';
+import '@/styles/reset/reset.scss';
+import '@/styles/init.scss';
 
 // PAGES
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <App />
+    <Suspense fallback={<h2 id='suspense'>LOADING...</h2>}>
+      <App />
+    </Suspense>
   </StrictMode>,
 );
